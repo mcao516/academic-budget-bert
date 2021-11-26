@@ -437,7 +437,7 @@ def main():
             project=training_args.project_name,
             group=training_args.group_name,
             name=training_args.run_name,
-            dir="/tmp",
+            dir="./",
         )
         wandb.config.update(model_args)
         wandb.config.update(data_args)
