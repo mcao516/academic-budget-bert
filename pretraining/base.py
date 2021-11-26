@@ -58,9 +58,10 @@ class BasePretrainModel(object):
             if model_name_or_path is None:
                 loading_path = args.tokenizer_name
                 logger.info(f"Loading default tokenizer {loading_path}")
+                tokenizer = token_cls.from_pretrained(loading_path)
             else:
                 loading_path = model_name_or_path
-            tokenizer = token_cls.from_pretrained(loading_path)
+                tokenizer = token_cls.from_pretrained(loading_path, local_files_only=True)
 
         if not config:
             if model_name_or_path is None:
