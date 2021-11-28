@@ -2,7 +2,7 @@
 module load StdEnv/2020 gcc/9.3.0 cuda/11.0
 module load arrow/5.0.0
 module load python/3.8
-source ~/envABERT/bin/activate
+source $SCRATCH/envABERT/bin/activate
 
 DATA_PATH=$SCRATCH/BERT-pretrain-corpus/samples
 OUTPUT_PATH=$SCRATCH/academic-BERT-test/
@@ -10,8 +10,8 @@ MODEL_NAME_OR_PATH=$SCRATCH/huggingface/bert-large-uncased
 mkdir $OUTPUT_PATH
 
 deepspeed run_pretraining.py \
+    --layernorm_embedding \
     --model_type bert-mlm --tokenizer_name bert-large-uncased \
-    --model_name_or_path $MODEL_NAME_OR_PATH \
     --hidden_act gelu \
     --hidden_size 1024 \
     --num_hidden_layers 24 \
