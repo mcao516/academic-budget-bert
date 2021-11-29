@@ -2,7 +2,7 @@
 module load StdEnv/2020 gcc/9.3.0 cuda/11.0
 module load arrow/5.0.0
 module load python/3.8
-source ~/envABERT/bin/activate
+source $HOME/envABERT/bin/activate
 
 MODEL_NAME_OR_PATH=$SCRATCH/academic-BERT-48h/pretraining_experiment-/epoch1000000_step47703
 

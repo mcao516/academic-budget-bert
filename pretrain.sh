@@ -2,7 +2,7 @@
 module load StdEnv/2020 gcc/9.3.0 cuda/11.0
 module load arrow/5.0.0
 module load python/3.8
-source $SCRATCH/envABERT/bin/activate
+source $HOME/envABERT/bin/activate
 
 DATA_PATH=$SCRATCH/BERT-pretrain-corpus/samples
 OUTPUT_PATH=$SCRATCH/academic-BERT-test/
