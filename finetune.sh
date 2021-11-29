@@ -4,7 +4,7 @@ module load arrow/5.0.0
 module load python/3.8
 source ~/envABERT/bin/activate
 
-MODEL_NAME_OR_PATH=$SCRATCH/academic-BERT-test/pretraining_experiment-/epoch1000000_step28077
+MODEL_NAME_OR_PATH=$SCRATCH/academic-BERT-48h/pretraining_experiment-/epoch1000000_step47703
 
 python run_glue.py \
   --model_name_or_path $MODEL_NAME_OR_PATH \

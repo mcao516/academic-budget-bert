@@ -253,8 +253,7 @@ class BertEmbeddings(nn.Module):
         self.position_embeddings = nn.Embedding(config.max_position_embeddings, config.hidden_size)
         self.token_type_embeddings = nn.Embedding(config.type_vocab_size, config.hidden_size)
 
-        self.layernorm_embedding = config.layernorm_embedding
-        if config.layernorm_embedding:
+        if self.config.useLN:
             BertLayerNorm = get_layer_norm_type(config)
             self.LayerNorm = BertLayerNorm(config.hidden_size, eps=1e-12)
 
@@ -273,7 +272,7 @@ class BertEmbeddings(nn.Module):
 
         embeddings = words_embeddings + position_embeddings + token_type_embeddings
 
-        if self.layernorm_embedding:
+        if self.config.useLN:
             embeddings = self.LayerNorm(embeddings)
 
         embeddings = self.dropout(embeddings)
