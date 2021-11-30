@@ -37,7 +37,7 @@ deepspeed run_pretraining.py \
     --dataset_path $DATA_PATH \
     --output_dir $OUTPUT_PATH \
     --print_steps 100 \
-    --num_epochs_between_checkpoints 10000 \
+    --num_epochs_between_checkpoints 100 \
     --job_name pretraining_experiment \
     --project_name budget-bert-pretraining \
     --validation_epochs 3 \
