@@ -560,7 +560,7 @@ def start_training(args, model, optimizer, lr_scheduler, start_epoch):
 
     # save a fine-tune checkpoint
     if master_process(args) and args.finetune_checkpoint_at_end:
-        create_finetune_job(args, args.num_epochs, global_step, model)
+        create_finetune_job(args, last_epoch + 1, global_step, model)
 
     save_training_checkpoint(
         model,
