@@ -1,6 +1,12 @@
 #!/bin/bash
-module load StdEnv/2020 gcc/9.3.0 cuda/11.0
-module load arrow/5.0.0
+if [ ${HOSTNAME:0:5} = "login" ] || [ ${HOSTNAME:0:2} = "cn" ]; then
+    echo "Load enviroment on MILA cluster"
+    module load cuda/11.0
+else
+    echo "Load enviroment on CC"
+    module load StdEnv/2020 gcc/9.3.0 cuda/11.0
+    module load arrow/5.0.0
+fi
 module load python/3.8
 source $HOME/envABERT/bin/activate
 
